@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c62liigg2yejs"]
+
+[ext_resource type="Texture2D" uid="uid://chwgpodxi33bt" path="res://pixil-frame-0 (19).png" id="1_klf2u"]
+[ext_resource type="Script" path="res://characters/player.tres.gd" id="1_r5ie7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_137u7"]
+size = Vector2(38, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5sma"]
+size = Vector2(29, 63.5)
+
+[node name="PlayerNode" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_r5ie7")
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2(5, 21)
+shape = SubResource("RectangleShape2D_137u7")
+
+[node name="Player" type="Sprite2D" parent="Player"]
+z_index = 1
+position = Vector2(3, 24)
+scale = Vector2(3, 1.50781)
+texture = ExtResource("1_klf2u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(5, 22.75)
+shape = SubResource("RectangleShape2D_m5sma")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_area_2d_body_entered"]

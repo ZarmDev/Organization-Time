@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq8xh8mtvlus3"]
+
+[ext_resource type="PackedScene" uid="uid://nha34akeh3tl" path="res://ui/LevelGrid.tscn" id="1_3nc0l"]
+[ext_resource type="Script" path="res://LevelMenu.gd" id="1_lc3w5"]
+[ext_resource type="Texture2D" uid="uid://dodgoxim1wli0" path="res://path289.png" id="2_uxst8"]
+
+[sub_resource type="FontVariation" id="FontVariation_wosdd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8m6p5"]
+font = SubResource("FontVariation_wosdd")
+font_size = 52
+
+[node name="LevelMenu" type="Node2D"]
+
+[node name="LevelMenu" type="MarginContainer" parent="."]
+offset_left = 131.0
+offset_top = 95.0
+offset_right = 932.0
+offset_bottom = 558.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_lc3w5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelMenu"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Title" type="Label" parent="LevelMenu/VBoxContainer"]
+layout_mode = 2
+text = "Organization"
+label_settings = SubResource("LabelSettings_8m6p5")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="TextureButton" parent="LevelMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_uxst8")
+ignore_texture_size = true
+stretch_mode = 3
+flip_h = true
+
+[node name="ClipControl" type="Control" parent="LevelMenu/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(710, 350)
+layout_mode = 2
+
+[node name="GridBox" type="HBoxContainer" parent="LevelMenu/VBoxContainer/HBoxContainer/ClipControl"]
+layout_mode = 0
+offset_right = 338.0
+offset_bottom = 26.0
+
+[node name="LevelGrid" parent="LevelMenu/VBoxContainer/HBoxContainer/ClipControl/GridBox" instance=ExtResource("1_3nc0l")]
+layout_mode = 2
+
+[node name="LevelGrid2" parent="LevelMenu/VBoxContainer/HBoxContainer/ClipControl/GridBox" instance=ExtResource("1_3nc0l")]
+layout_mode = 2
+
+[node name="LevelGrid3" parent="LevelMenu/VBoxContainer/HBoxContainer/ClipControl/GridBox" instance=ExtResource("1_3nc0l")]
+layout_mode = 2
+
+[node name="NextButton" type="TextureButton" parent="LevelMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_uxst8")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1146.0
+offset_bottom = 23.0
+text = "Credits to kidscancode.org for this level select menu"
+
+[connection signal="pressed" from="LevelMenu/VBoxContainer/HBoxContainer/BackButton" to="LevelMenu" method="_on_back_button_pressed"]
+[connection signal="pressed" from="LevelMenu/VBoxContainer/HBoxContainer/NextButton" to="LevelMenu" method="_on_next_button_pressed"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://xgqsjhse2xfq"]
+
+[ext_resource type="Script" path="res://ui/LevelLock.gd" id="1_e3dky"]
+[ext_resource type="Texture2D" uid="uid://cd0t885a33c4" path="res://icon.svg" id="2_gyc0u"]
+
+[node name="PanelContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(110, 110)
+offset_right = 53.0
+offset_bottom = 51.0
+script = ExtResource("1_e3dky")
+locked = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Lock" type="TextureRect" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_gyc0u")
+expand_mode = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

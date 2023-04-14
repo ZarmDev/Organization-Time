@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7filox8rg6w6"]
+
+[ext_resource type="Texture2D" uid="uid://b7ivutgb36bvn" path="res://trophy.png" id="1_qxr12"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xviee"]
+font_size = 52
+
+[sub_resource type="LabelSettings" id="LabelSettings_mgp0p"]
+font_size = 52
+
+[node name="ending" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1154.0
+offset_bottom = 651.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 45.0
+offset_right = 1137.0
+offset_bottom = 120.0
+text = "Hey. We decided to let you out. Good job on completing the game and we will let you out in some time."
+label_settings = SubResource("LabelSettings_xviee")
+autowrap_mode = 2
+
+[node name="Trophy" type="Sprite2D" parent="."]
+position = Vector2(576, 534)
+scale = Vector2(15.0625, 13.0156)
+texture = ExtResource("1_qxr12")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 46.0
+offset_top = 390.0
+offset_right = 359.0
+offset_bottom = 465.0
+text = "Your trophy:"
+label_settings = SubResource("LabelSettings_mgp0p")

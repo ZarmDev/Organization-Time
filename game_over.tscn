@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw6ovgvvs11wx"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_seq1r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_on7hu"]
+font_size = 52
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_seq1r")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 45.0
+offset_right = 83.0
+offset_bottom = 68.0
+text = "You lost!"
+label_settings = SubResource("LabelSettings_on7hu")
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 153.0
+offset_right = 273.0
+offset_bottom = 253.0
+theme_override_font_sizes/font_size = 32
+text = "Try again?"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

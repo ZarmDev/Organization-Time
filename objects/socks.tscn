@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://w2wotp8ph670"]
+
+[ext_resource type="Script" path="res://objects/socks.gd" id="1_u47tw"]
+[ext_resource type="Texture2D" uid="uid://dwkpjtjaa1htq" path="res://socks.png" id="1_vey53"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpxd0"]
+size = Vector2(79, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnttn"]
+size = Vector2(36, 44)
+
+[node name="Socks" type="CharacterBody2D"]
+script = ExtResource("1_u47tw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_vey53")
+
+[node name="StaticBody2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-6.5, -8)
+shape = SubResource("RectangleShape2D_kpxd0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, -7)
+shape = SubResource("RectangleShape2D_hnttn")
